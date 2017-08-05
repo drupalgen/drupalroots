@@ -1,0 +1,26 @@
+language: ruby
+sudo: required
+
+services:
+  - docker
+
+git:
+  depth: 2
+
+before_install:
+  - export PATH=$PATH:$HOME/.local/bin
+  - sudo apt-get -qq update
+  - sudo apt-get install -y pv
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+
+install:
+  #- docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - make init
+
+before_script:
+  - make update-tests
+
+script:
+  # Drupal 8
+  - make phpcs
+  - make behat

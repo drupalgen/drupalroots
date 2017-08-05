@@ -1,0 +1,96 @@
+{
+    "name": "drupalgen/drupalroots",
+    "description": "Drupal Roots, a Drupal 8 genealogy project",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Lisa Ridley <lhridley@gmail.com>",
+            "role": "Project Owner"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6",
+        "drupal-composer/drupal-scaffold": "^2.2",
+        "drupal/core": "~8.0",
+        "drush/drush": "~8.0",
+        "webflo/drupal-finder": "^0.3.0",
+        "webmozart/path-util": "^2.3",
+        "drupal/module_filter": "*",
+        "drupal/environment_indicator": "*",
+        "drupal/admin_toolbar": "*",
+        "drupal/config_devel": "*",
+        "drupal/config_provider": "*",
+        "drupal/config_sync": "*",
+        "drupal/config_tools": "*",
+        "drupal/pathauto": "^1.0",
+        "drupal/redirect": "^1.0",
+        "drupal/features": "^3.0",
+        "drupal/bootstrap": "^3.0"
+    },
+    "require-dev": {
+        "drupal/drupal-extension": "^3.0",
+        "drupal/drupal-driver": "*",
+        "guzzlehttp/guzzle" : "^6.0@dev",
+        "lakion/mink-debug-extension": "dev-master",
+        "behat/behat": "^3.3",
+        "behat/mink": "^1.7",
+        "behat/mink-goutte-driver": "^1.2",
+        "mikey179/vfsStream": "^1.2",
+        "symfony/css-selector": "^3.1",
+        "drupal/coder": "^8.0",
+        "phpunit/phpunit": ">=4.8.28 <5",
+        "phpunit/dbunit": "*",
+        "fabpot/goutte": "*",
+        "jcalderonzumba/gastonjs": "~1.0.2",
+        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+        "mikey179/vfsstream": "~1.2",
+        "drupal/devel": "*",
+        "drupal/console": "^1.0-rc26"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+      "sort-packages": true
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
+    },
+    "extra": {
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        }
+    }
+}

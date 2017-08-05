@@ -1,0 +1,6 @@
+.DS_Store
+tests/vendor
+tests/bin
+*.sql
+*.gz
+

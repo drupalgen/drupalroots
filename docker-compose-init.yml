@@ -1,0 +1,94 @@
+version: '3'
+
+services:
+  web:
+    build: ./docker/nginx/
+    #image: codementality/dockerdrop-nginx
+    ports:
+      - 8000:80
+    volumes:
+      - drupal:/var/www/html
+      - ./drupal/config/drupal/.csslintrc:/var/www/html/drupal/web/.csslintrc
+      - ./drupal/config/drupal/.editorconfig:/var/www/html/drupal/web/.editorconfig
+      - ./drupal/config/drupal/.eslintignore:/var/www/html/drupal/web/.eslintignore
+      - ./drupal/config/drupal/.eslintrc.json:/var/www/html/drupal/web/.eslintrc.json
+      - ./drupal/config/drupal/.gitattributes:/var/www/html/drupal/web/.gitattributes
+      - ./drupal/config/drupal/.htaccess:/var/www/html/drupal/web/.htaccess
+      - ./drupal/config/drupal/autoload.php:/var/www/html/drupal/web/autoload.php
+      - ./drupal/config/drupal/index.php:/var/www/html/drupal/web/index.php
+      - ./drupal/config/drupal/update.php:/var/www/html/drupal/web/update.php
+      - ./drupal/config/drupal/robots.txt:/var/www/html/drupal/web/robots.txt
+      - ./drupal/config/drupal/web.config:/var/www/html/drupal/web/web.config
+      - ./drupal/config/settings/default.services.yml:/var/www/html/drupal/web/sites/default/default.services.yml
+      - ./drupal/config/settings/default.settings.php:/var/www/html/drupal/web/sites/default/default.settings.php
+    depends_on:
+      - php
+    environment:
+      NGINX_DOCROOT: drupal/web
+      NGINX_SERVER_NAME: localhost
+       Set to the same as the PHP_POST_MAX_SIZE, but use lowercase "m"
+      NGINX_MAX_BODY_SIZE: 16m
+
+  php:
+    build: ./docker/php/
+    #image: codementality/dockerdrop-php
+    expose:
+      - 9000
+    volumes:
+      # the following are mounted on the php service only
+      - ./drupal/composer.json:/var/www/html/drupal/composer.json
+      - ./drupal/composer.lock:/var/www/html/drupal/composer.lock
+      - ./drupal/scripts:/var/www/html/drupal/scripts
+      # the following must also be mounted on the web service
+      - drupal:/var/www/html
+      - ./drupal/config/drupal/.csslintrc:/var/www/html/drupal/web/.csslintrc
+      - ./drupal/config/drupal/.editorconfig:/var/www/html/drupal/web/.editorconfig
+      - ./drupal/config/drupal/.eslintignore:/var/www/html/drupal/web/.eslintignore
+      - ./drupal/config/drupal/.eslintrc.json:/var/www/html/drupal/web/.eslintrc.json
+      - ./drupal/config/drupal/.gitattributes:/var/www/html/drupal/web/.gitattributes
+      - ./drupal/config/drupal/.htaccess:/var/www/html/drupal/web/.htaccess
+      - ./drupal/config/drupal/autoload.php:/var/www/html/drupal/web/autoload.php
+      - ./drupal/config/drupal/index.php:/var/www/html/drupal/web/index.php
+      - ./drupal/config/drupal/update.php:/var/www/html/drupal/web/update.php
+      - ./drupal/config/drupal/robots.txt:/var/www/html/drupal/web/robots.txt
+      - ./drupal/config/drupal/web.config:/var/www/html/drupal/web/web.config
+      - ./drupal/config/settings/default.services.yml:/var/www/html/drupal/web/sites/default/default.services.yml
+      - ./drupal/config/settings/default.settings.php:/var/www/html/drupal/web/sites/default/default.settings.php
+    environment:
+      PHP_MEMORY_LIMIT: 256M
+      PHP_MAX_EXECUTION_TIME: 120
+      # If you set this,make sure you also set it for Nginx
+      PHP_POST_MAX_SIZE: 16M
+      PHP_UPLOAD_MAX_FILESIZE: 16M
+      # used by Drush Alias; if not specified Drush defaults to dev
+      PHP_SITE_NAME: dev
+      # used by Drush alias; if not specified Drush defaults to localhost:8000
+      PHP_HOST_NAME: localhost:8000
+      # Make this the same for Nginx
+      PHP_DOCROOT: drupal/web
+
+  db:
+    image: mariadb:10.3.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # The simple way to override the mariadb config.
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./data:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - "8002:8025"
+
+  selenium:
+    image: selenium/standalone-firefox:2.53.1
+
+volumes:
+  mysql-data:
+    driver: local
+  drupal:
+    driver: local
