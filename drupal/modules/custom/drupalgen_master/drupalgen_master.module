@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains drupalgen_master.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function drupalgen_master_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the drupalgen_master module.
+    case 'help.page.drupalgen_master':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('DrupalGen Master module, contains setup and installation methods to install this site.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

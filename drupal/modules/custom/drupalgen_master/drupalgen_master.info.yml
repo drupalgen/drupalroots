@@ -1,0 +1,7 @@
+name: DrupalGen Master
+type: module
+description: DrupalGen Master module, contains setup and installation methods to install this site.
+core: 8.x
+package: Genealogy
+dependencies:
+  - taxonomy
