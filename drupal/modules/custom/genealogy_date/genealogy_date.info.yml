@@ -1,0 +1,7 @@
+name: Genealogy Date
+type: module
+description: Field to store dates for Genealogical purposes
+core: 8.x
+package: Genealogy
+dependencies:
+  - field

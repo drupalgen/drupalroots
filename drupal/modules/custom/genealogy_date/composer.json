@@ -1,0 +1,14 @@
+{
+  "name": "drupal/genealogy_date",
+  "type": "drupal-module",
+  "description": "Field to store dates for Genealogical purposes",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/genealogy_date",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/genealogy_date",
+    "source": "http://cgit.drupalcode.org/genealogy_date"
+  },
+  "require": { }
+}
