@@ -87,3 +87,6 @@ behat: ## run behat tests
 
 update-tests: ## update behat test environment
 	docker-compose exec -T php drupal/vendor/bin/behat -c tests/behat.yml --init
+
+composer-update-local: ## Run Composer update locally
+	composer update --ignore-platform-reqs --working-dir=drupal

@@ -1,0 +1,14 @@
+{
+  "name": "drupal/genealogy_notes",
+  "type": "drupal-module",
+  "description": "Research notes for Genealogy entities",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/genealogy_notes",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/genealogy_notes",
+    "source": "http://cgit.drupalcode.org/genealogy_notes"
+  },
+  "require": { }
+}

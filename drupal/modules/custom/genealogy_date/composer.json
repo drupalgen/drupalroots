@@ -10,5 +10,7 @@
     "issues": "https://www.drupal.org/project/issues/genealogy_date",
     "source": "http://cgit.drupalcode.org/genealogy_date"
   },
-  "require": { }
+  "require": {
+    "fisharebest/ext-calendar": "^2.3"
+  }
 }

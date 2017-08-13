@@ -1,0 +1,22 @@
+{#
+/**
+ * @file genealogy_notes.html.twig
+ * Default theme implementation to present Notes data.
+ *
+ * This template is used when viewing Notes pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_genealogy_notes()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('genealogy_notes') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

@@ -1,0 +1,14 @@
+
+# Notes menu items definition
+entity.genealogy_notes.collection:
+  title: 'Notes list'
+  route_name: entity.genealogy_notes.collection
+  description: 'List Notes entities'
+  parent: system.admin_structure
+  weight: 100
+
+genealogy_notes.admin.structure.settings:
+  title: Notes settings
+  description: 'Configure Notes entities'
+  route_name: genealogy_notes.settings
+  parent: system.admin_structure

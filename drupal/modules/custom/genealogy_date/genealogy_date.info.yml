@@ -1,6 +1,6 @@
 name: Genealogy Date
 type: module
-description: Field to store dates for Genealogical purposes
+description: Field to store dates for Genealogical purposes.  To use this module, you must install it with Composer since it requires third party libraries to function properly.
 core: 8.x
 package: Genealogy
 dependencies:

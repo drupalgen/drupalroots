@@ -1,0 +1,10 @@
+name: 'Genealogy Notes'
+type: module
+description: 'Research notes for Genealogy entities'
+core: 8.x
+package: Genealogy
+dependencies:
+  - field
+  - text
+  - user
+version: 1.0-beta1

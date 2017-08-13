@@ -1,0 +1,33 @@
+add notes entities:
+  title: 'Create new Notes entities'
+
+administer notes entities:
+  title: 'Administer Notes entities'
+  description: 'Allow to access the administration form to configure Notes entities.'
+  restrict access: true
+
+delete notes entities:
+  title: 'Delete Notes entities'
+
+edit notes entities:
+  title: 'Edit Notes entities'
+
+access notes overview:
+  title: 'Access the Notes overview page'
+
+view published notes entities:
+  title: 'View published Notes entities'
+
+view unpublished notes entities:
+  title: 'View unpublished Notes entities'
+
+view all notes revisions:
+  title: 'View all Notes revisions'
+
+revert all notes revisions:
+  title: 'Revert all Notes revisions'
+  description: 'Role requires permission <em>view Notes revisions</em> and <em>edit rights</em> for notes entities in question or <em>administer notes entities</em>.'
+
+delete all notes revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Notes revisions</em> and <em>delete rights</em> for notes entities in question or <em>administer notes entities</em>.'
