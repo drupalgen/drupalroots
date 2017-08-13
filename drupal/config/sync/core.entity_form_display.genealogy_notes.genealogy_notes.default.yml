@@ -1,0 +1,42 @@
+uuid: fb717737-0c8c-46a2-b0f4-6018bff51c9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.genealogy_notes.genealogy_notes.field_genealogy_note
+  module:
+    - genealogy_notes
+    - text
+_core:
+  default_config_hash: aDmn9frK3UDCCYHvpStR0Ua6797n0tpc54MMMzM171Q
+id: genealogy_notes.genealogy_notes.default
+targetEntityType: genealogy_notes
+bundle: genealogy_notes
+mode: default
+content:
+  field_genealogy_note:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: -3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

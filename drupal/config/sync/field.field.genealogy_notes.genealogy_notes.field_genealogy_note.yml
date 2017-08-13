@@ -1,0 +1,23 @@
+uuid: fd919e49-9e31-4f41-ad18-9f457662e447
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.genealogy_notes.field_genealogy_note
+  module:
+    - genealogy_notes
+    - text
+_core:
+  default_config_hash: Z6a5FF6bELeCkVCIwC4BlBdCsYSh-yDZRPlgluz4-l4
+id: genealogy_notes.genealogy_notes.field_genealogy_note
+field_name: field_genealogy_note
+entity_type: genealogy_notes
+bundle: genealogy_notes
+label: Notes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
