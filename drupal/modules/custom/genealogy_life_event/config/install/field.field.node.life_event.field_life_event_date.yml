@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_life_event_date
+    - node.type.life_event
+  module:
+    - genealogy_date
+id: node.life_event.field_life_event_date
+field_name: field_life_event_date
+entity_type: node
+bundle: life_event
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: genealogy_date_field_type

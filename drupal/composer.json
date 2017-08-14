@@ -21,7 +21,7 @@
         "drupal-composer/drupal-scaffold": "^2.2",
         "fisharebest/ext-calendar": "^2.3",
         "drupal/admin_toolbar": "*",
-        "drupal/auto_entitylabel": "^2.0-beta1",
+        "drupal/auto_entitylabel": "2.x-dev",
         "drupal/inline_entity_form": "^1.0-beta1",
         "drupal/footnotes":"^2.0",
         "drupal/bootstrap": "^3.0",

@@ -4,7 +4,6 @@ dependencies:
   config:
     - field.storage.node.field_person_name_prefix
     - node.type.person
-    - taxonomy.vocabulary.name_prefix
 id: node.person.field_person_name_prefix
 field_name: field_person_name_prefix
 entity_type: node

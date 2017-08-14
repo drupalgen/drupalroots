@@ -3,6 +3,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.person.field_person_gender
+    - field.field.node.person.field_person_given_name
+    - field.field.node.person.field_person_life_events
+    - field.field.node.person.field_person_name_prefix
+    - field.field.node.person.field_person_name_suffix
+    - field.field.node.person.field_person_research_notes
+    - field.field.node.person.field_person_surname
     - node.type.person
   module:
     - user
@@ -14,4 +21,11 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_person_gender: true
+  field_person_given_name: true
+  field_person_life_events: true
+  field_person_name_prefix: true
+  field_person_name_suffix: true
+  field_person_research_notes: true
+  field_person_surname: true

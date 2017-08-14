@@ -1,16 +1,16 @@
-name: 'Genealogy Person'
+name: 'Genealogy Life Event'
+description: 'Life Events for Genealogy'
 type: module
 core: 8.x
-package: Genealogy
 dependencies:
   - field
-  - genealogy_life_event
+  - genealogy_date
   - genealogy_research_notes
   - inline_entity_form
   - menu_ui
   - node
   - path
   - taxonomy
+  - text
   - user
 version: 8.x-1.0-beta1
-description: 'Sets up Person content type for Genealogy site.'

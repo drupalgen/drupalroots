@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.life_event.field_life_event_date
+    - field.field.node.life_event.field_life_event_description
+    - field.field.node.life_event.field_life_event_place
+    - field.field.node.life_event.field_life_event_research_notes
+    - field.field.node.life_event.field_life_event_type
+    - node.type.life_event
+  module:
+    - user
+id: node.life_event.teaser
+targetEntityType: node
+bundle: life_event
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_life_event_date: true
+  field_life_event_description: true
+  field_life_event_place: true
+  field_life_event_research_notes: true
+  field_life_event_type: true

@@ -62,8 +62,8 @@ cex: ## Export configuration files
 	@docker-compose exec php /bin/bash -c "drush @default.dev cex -y"
 
 provision: ## run drush commands provisioning the project
-	#@echo "Enabling Drupal Roots master..."
-	#docker-compose exec -T php drush @default.dev en drupalroots_master -y
+	@echo "Enabling Genealogy Setup..."
+	docker-compose exec -T php drush @default.dev en genealogy_setup -y
 	@echo "Running database updates..."
 	@docker-compose exec -T php drush @default.dev updb
 	@echo "Running entity updates..."

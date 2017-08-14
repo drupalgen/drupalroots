@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.life_event.field_life_event_date
+    - field.field.node.life_event.field_life_event_description
+    - field.field.node.life_event.field_life_event_place
+    - field.field.node.life_event.field_life_event_research_notes
+    - field.field.node.life_event.field_life_event_type
+    - node.type.life_event
+  module:
+    - genealogy_date
+    - text
+    - user
+id: node.life_event.default
+targetEntityType: node
+bundle: life_event
+mode: default
+content:
+  field_life_event_date:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: genealogy_date_formatter_type
+    region: content
+  field_life_event_description:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_life_event_place:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_life_event_research_notes:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_life_event_type:
+    weight: 101
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

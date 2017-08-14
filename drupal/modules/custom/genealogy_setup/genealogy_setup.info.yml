@@ -4,11 +4,13 @@ description: 'Setup module for Genealogy package'
 core: 8.x
 package: Genealogy
 dependencies:
+  - genealogy_date
+  - genealogy_person
+  - genealogy_research_notes
+  - genealogy_vocabularies
+  - genealogy_life_event
+  - inline_entity_form
   - node
   - pathauto
   - taxonomy
-  - inline_entity_form
-  - genealogy_vocabulary
-  - genealogy_date
-  - genealogy_research_notes
 version: 8.x-1.0-beta1

@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - genealogy_date
+    - node
+id: node.field_life_event_date
+field_name: field_life_event_date
+entity_type: node
+type: genealogy_date_field_type
+settings:
+  max_length: '120'
+  is_ascii: false
+  case_sensitive: false
+module: genealogy_date
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

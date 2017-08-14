@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Place
+vid: place
+description: Places
+hierarchy: 0
+weight: 0

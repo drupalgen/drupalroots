@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Life Event Type'
+vid: life_event_type
+description: 'Life Event Type'
+hierarchy: 0
+weight: 0

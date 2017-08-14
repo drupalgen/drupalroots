@@ -1,7 +1,8 @@
-name: 'Research Notes'
+name: 'Genealogy Research Notes'
 description: 'Genealogy Research Notes'
 type: module
 core: 8.x
+package: Genealogy
 dependencies:
   - field
   - menu_ui

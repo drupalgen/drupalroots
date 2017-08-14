@@ -1,0 +1,14 @@
+node_type_person_status: '1'
+node_type_person_pattern: '[node:field_person_surname], [node:field_person_given_name] ([node:field_person_gender])'
+node_type_person_php: 0
+submit: 'Save configuration'
+form_build_id: form-9bCAr7qzrhjSH_nKqAbKMhhYnTpOlMey_YJ3QAXvazY
+form_token: bxmeR9P3dY0THzbC592D068m_ldME_pVRKRNAne4u-8
+form_id: auto_entitylabel_settings_form
+op: 'Save configuration'
+node_type_research_notes_status: '1'
+node_type_research_notes_pattern: 'Research notes updated by [node:author] on [node:changed]'
+node_type_research_notes_php: 0
+node_type_life_event_status: '1'
+node_type_life_event_pattern: 'Life Event updated [node:changed].'
+node_type_life_event_php: 0

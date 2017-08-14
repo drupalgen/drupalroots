@@ -2,13 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_person_gender
-    - node.type.person
-id: node.person.field_person_gender
-field_name: field_person_gender
+    - field.storage.node.field_life_event_type
+    - node.type.life_event
+    - taxonomy.vocabulary.life_event_type
+id: node.life_event.field_life_event_type
+field_name: field_life_event_type
 entity_type: node
-bundle: person
-label: Gender
+bundle: life_event
+label: 'Event Type'
 description: ''
 required: false
 translatable: false
@@ -18,7 +19,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      gender: gender
+      life_event_type: life_event_type
     sort:
       field: _none
     auto_create: false
