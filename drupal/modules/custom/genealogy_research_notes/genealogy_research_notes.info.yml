@@ -1,0 +1,12 @@
+name: 'Research Notes'
+description: 'Genealogy Research Notes'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+version: 8.x-1.0-beta1

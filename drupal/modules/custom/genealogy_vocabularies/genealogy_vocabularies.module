@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains genealogy_vocabularies.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function genealogy_vocabularies_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the genealogy_vocabularies module.
+    case 'help.page.genealogy_vocabularies':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Genealogy Vocabularies module, contains installation methods to install vocabularies for this site.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

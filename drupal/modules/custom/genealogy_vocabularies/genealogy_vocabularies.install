@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * @file
+ * Genealogy Vocabularies install file.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_install().
+ */
+function genealogy_vocabularies_install() {
+  // Create name_prefix vocabulary.
+  $vocabulary = [
+    'vid' => 'name_prefix',
+    'name' => 'Name Prefix',
+    'description' => 'Name prefix values',
+  ];
+  _genealogy_vocabularies_create_taxonomy_vocabularies($vocabulary);
+
+  // Add terms to name_prefix vocabulary.
+  $terms = [
+    'Mr.',
+    'Mrs.',
+    'Dr.',
+    'Rev.',
+    'Ms.',
+  ];
+  $vid = 'name_prefix';
+  _genealogy_vocabularies_create_taxonomy_terms($terms, $vid);
+
+  // Create name_suffix vocabulary.
+  $vocabulary = [
+    'vid' => 'name_suffix',
+    'name' => 'Name Suffix',
+    'description' => 'Name suffix values',
+  ];
+  _genealogy_vocabularies_create_taxonomy_vocabularies($vocabulary);
+
+  // Add terms to name_suffix vocabulary.
+  $terms = [
+    'PhD',
+    'MD',
+    'Jr.',
+    'Sr.',
+    'II',
+    'III',
+    'IV',
+  ];
+  $vid = 'name_suffix';
+  _genealogy_vocabularies_create_taxonomy_terms($terms, $vid);
+
+  // Create event_type vocabulary.
+  $vocabulary = [
+    'vid' => 'life_event_type',
+    'name' => 'Life Event Type',
+    'description' => 'Life Event Type',
+  ];
+  _genealogy_vocabularies_create_taxonomy_vocabularies($vocabulary);
+
+  // Add terms to event_type vocabulary.
+  $terms = [
+    'birth',
+    'death',
+    'burial',
+    'christening',
+    'baptism',
+    'adoption',
+    'marriage',
+    'separation',
+    'divorce',
+    'annulment',
+    'residence',
+    'census',
+    'military service',
+    'job',
+    'other',
+  ];
+  $vid = 'life_event_type';
+  _genealogy_vocabularies_create_taxonomy_terms($terms, $vid);
+
+  // Create gender vocabulary.
+  $vocabulary = [
+    'vid' => 'gender',
+    'name' => 'Gender',
+    'description' => 'Gender values',
+  ];
+  _genealogy_vocabularies_create_taxonomy_vocabularies($vocabulary);
+
+  // Add terms to gender vocabulary.
+  $terms = [
+    'male',
+    'female',
+  ];
+  $vid = 'gender';
+  _genealogy_vocabularies_create_taxonomy_terms($terms, $vid);
+
+// Create gender vocabulary.
+  $vocabulary = [
+    'vid' => 'place',
+    'name' => 'Place',
+    'description' => 'Places',
+  ];
+  _genealogy_vocabularies_create_taxonomy_vocabularies($vocabulary);
+
+  // Add terms to gender vocabulary.
+  $terms = [
+    'Jasper, Marion, Tennessee, USA',
+    'Sanford, Seminole, Florida, USA',
+    'Rising Fawn, Dade, Georgia, USA',
+    'Chattanooga, Hamilton, Tennessee, USA',
+    'Houston, Harris, Texas, USA',
+    'Bridgeport, Jackson, Alabama, USA',
+  ];
+  $vid = 'place';
+  _genealogy_vocabularies_create_taxonomy_terms($terms, $vid);
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function genealogy_vocabularies_uninstall() {
+  $vocabularies = [
+    'name_prefix',
+    'name_suffix',
+    'life_event_type',
+    'gender',
+    'place',
+  ];
+
+  foreach ($vocabularies as $vocabulary) {
+    Vocabulary::load($vocabulary)->delete();
+  }
+}
+
+/**
+ * Helper function to create taxonomy terms.
+ *
+ * @param array $terms
+ *   Taxonomy terms to add to the given vocabulary.
+ * @param string $vocabulary
+ *   Machine name of the vocabulary in question.
+ */
+function _genealogy_vocabularies_create_taxonomy_terms(array $terms, string $vocabulary) {
+  $weight = 0;
+  foreach ($terms as $term) {
+    $newterm = Term::create([
+      'vid' => $vocabulary,
+      'langcode' => 'en',
+      'name' => $term,
+      'weight' => $weight++,
+      'parent' => [0],
+    ]);
+    $newterm->save();
+  }
+}
+
+/**
+ * Helper function to create taxonomy vocabularies.
+ *
+ * $vocabulary is an array containing the following key/value pairs:
+ *    'vid' => 'vocabulary machine name'
+ *    'name' => 'Vocabulary Name'
+ *    'description' => 'The content of the deescription field'
+ *
+ * Name and vid is required, description is optional.
+ *
+ * @param array $vocabulary
+ *   Vocabulary contents, see above.
+ */
+function _genealogy_vocabularies_create_taxonomy_vocabularies(array $vocabulary) {
+  $vocabularies = Vocabulary::loadMultiple();
+  // Creates new Vocabulary if it does not exist, does nothing if a vocabulary
+  // with the machine name already exists.
+  if (!isset($vocabularies[$vocabulary['vid']])) {
+    $voc = Vocabulary::create([
+      'vid' => $vocabulary['vid'],
+      'description' => $vocabulary['description'],
+      'name' => $vocabulary['name'],
+    ]);
+    $voc->save();
+  }
+}

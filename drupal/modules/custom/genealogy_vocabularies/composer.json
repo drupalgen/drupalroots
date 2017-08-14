@@ -1,0 +1,14 @@
+{
+  "name": "drupal/genealogy_vocabularies",
+  "type": "drupal-module",
+  "description": "Genealogy Vocabularies module, contains installation methods to install vocabularies for this site.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/genealogy_vocabularies",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/genealogy_vocabularies",
+    "source": "http://cgit.drupalcode.org/genealogy_vocabularies"
+  },
+  "require": { }
+}

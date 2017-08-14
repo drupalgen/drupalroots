@@ -1,0 +1,7 @@
+name: Genealogy Vocabularies
+type: module
+description: Genealogy Vocabularies module, contains installation methods to install vocabularies for this site.
+core: 8.x
+package: Genealogy
+dependencies:
+  - taxonomy

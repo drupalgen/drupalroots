@@ -1,0 +1,13 @@
+name: 'Genealogy Person'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - genealogy_research_notes
+  - inline_entity_form
+  - menu_ui
+  - node
+  - path
+  - taxonomy
+  - user
+version: 8.x-1.0-beta1

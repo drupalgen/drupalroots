@@ -1,0 +1,5 @@
+excluded:
+  - taxonomy.vocabulary.gender
+  - taxonomy.vocabulary.name_prefix
+  - taxonomy.vocabulary.name_suffix
+required: true

@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.research_notes.field_research_notes
+    - node.type.research_notes
+  module:
+    - text
+    - user
+id: node.research_notes.default
+targetEntityType: node
+bundle: research_notes
+mode: default
+content:
+  field_research_notes:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

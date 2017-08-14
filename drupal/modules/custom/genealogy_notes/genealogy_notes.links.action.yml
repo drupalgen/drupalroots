@@ -1,5 +1,0 @@
-entity.genealogy_notes.add_form:
-  route_name: entity.genealogy_notes.add_form
-  title: 'Add Notes'
-  appears_on:
-    - entity.genealogy_notes.collection

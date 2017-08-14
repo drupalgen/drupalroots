@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Genealogy Setup install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function genealogy_setup_install() {
+  $modules_to_install = [
+    'pathauto',
+    'auto_entitylabel',
+    'genealogy_vocabularies',
+    'genealogy_date',
+  ];
+
+  foreach ($modules_to_install as $module) {
+    \Drupal::service('module_installer')->install([$module]);
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function genealogy_setup_uninstall() {
+  $modules_to_install = [
+    'genealogy_vocabularies',
+    'genealogy_date',
+  ];
+
+  foreach ($modules_to_install as $module) {
+    \Drupal::service('module_installer')->uninstall([$module]);
+  }
+}

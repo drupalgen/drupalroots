@@ -1,0 +1,14 @@
+{
+  "name": "drupal/genealogy_setup",
+  "type": "drupal-module",
+  "description": "Setup module for Genealogy package",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/genealogy_setup",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/genealogy_setup",
+    "source": "http://cgit.drupalcode.org/genealogy_setup"
+  },
+  "require": { }
+}
